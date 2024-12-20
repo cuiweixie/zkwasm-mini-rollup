@@ -176,6 +176,7 @@ pub fn verify_tx_signature(inputs: Vec<u64>) {
     };
     let commands = &inputs[20..];
     let msg = PoseidonHasher::hash(commands, true);
+    zkwasm_rust_sdk::dbg!("poseidon hash: {:?}\n", msg);
     sig.verify(&pk, &msg);
 }
 
